@@ -21,7 +21,7 @@
 
 > 有想加的 props 都歡迎發 PR
 
-#### treeData 格式
+### treeData 格式
 
 ```ts
 export type TreeData = {

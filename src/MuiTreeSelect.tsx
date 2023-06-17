@@ -17,7 +17,12 @@ export const useStyles = makeStyles<StyleProps>(() => ({
     maxWidth: "100%",
     backgroundColor: "#fff",
 
-    "& > .MuiTreeItem-root": {
+    // "& > .MuiTreeItem-root > .MuiTreeItem-content":
+    //   {
+    //     padding: '0px',
+    //   },
+
+    "&": {
       border: "1px solid #E4E7EC",
       borderRadius: "10px",
       // "& > .MuiCollapse-root": {
@@ -32,6 +37,11 @@ export const useStyles = makeStyles<StyleProps>(() => ({
       //     },
       // },
     },
+    "@global": {
+      '.MuiTreeItem-content': {
+        padding: '0px'
+      }
+    }
   },
   content: {
     flexDirection: "row-reverse",
@@ -94,7 +104,7 @@ const MuiTreeSelect = ({
     defaultCollapseIcon={expandIcon}
     defaultExpandIcon={collapseIcon}
     selected={[]} // 可考慮 props
-    classes={{root: classes.root}}
+    className={classes.root}
   >
     {treeData?.map((node) => renderTree(node))}
   </TreeView>
