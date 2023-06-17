@@ -1,3 +1,4 @@
+import React, {MouseEvent} from 'react'
 import TreeView from '@mui/lab/TreeView';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
@@ -14,10 +15,12 @@ const MuiTreeSelect = () => {
         const handleExpandClick = () =>{
             console.log('123123')
         }
-        const handleNodeSelect = (event: any, id: string) =>{
+        
+        const handleNodeSelect = (event: MouseEvent<HTMLButtonElement>, id: string) =>{
             console.log(id, 'iddd')
             console.log('123')
         }
+
         return (
             <TreeItem
               key={node.id}
@@ -41,6 +44,7 @@ const MuiTreeSelect = () => {
     </TreeItem>
         )
     }
+    console.log(data, 'data')
   return (
     <TreeView
     multiSelect
@@ -56,4 +60,5 @@ const MuiTreeSelect = () => {
 export default MuiTreeSelect
 
 // 按鈕向後
+// 按鈕自定義
 // https://codesandbox.io/s/strange-euclid-ywcjxt?file=/src/App.js
