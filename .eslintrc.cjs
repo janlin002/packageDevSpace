@@ -21,6 +21,7 @@ module.exports = {
   ],
   rules: {
     'react/jsx-filename-extension': 'off',
+    "react/react-in-jsx-scope": "off",
     'import/no-unresolved': 'off',
     'import/extensions': [
       'error',

@@ -1,12 +1,10 @@
-import React, {MouseEvent} from 'react'
+import React, {MouseEvent}  from 'react';
 import TreeView from '@mui/lab/TreeView';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import TreeItem from '@mui/lab/TreeItem';
 import Checkbox from '@mui/material/Checkbox';
-import Typography from '@mui/material/Typography';
 import { makeStyles } from "@mui/styles";
-import { Theme } from '@material-ui/core';
 
 import { TreeData, MuiTreeSelectProps, StyleProps } from './types/common'
 
@@ -67,8 +65,8 @@ const MuiTreeSelect = ({
         }
         
         const handleNodeSelect = (event: MouseEvent<HTMLButtonElement>, id: string) =>{
-            console.log(id, 'iddd')
-            console.log('123')
+            console.log(event, id, 'iddd')
+            console.log(expanded, '123')
         }
 
         return (
