@@ -3487,6 +3487,117 @@ mui-tree-selects@0.0.4:
     rollup "^3.25.1"
     rollup-plugin-terser "^7.0.2"
 
+mui-tree-selects@0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/mui-tree-selects/-/mui-tree-selects-0.0.5.tgz#6a970e982a03564b1f2d76feade8246b880cfbb0"
+  integrity sha512-nYLabGCPUS9Nl9GVZzngK64j2w2LhdFH0UkcYrvu50tcGODtWKz2p6C0/1ymaBvHBbEzcWvbMyifmraH/rzMiA==
+  dependencies:
+    "@emotion/react" "^11.11.1"
+    "@emotion/styled" "^11.11.0"
+    "@material-ui/core" "^4.12.4"
+    "@mui/icons-material" "^5.11.16"
+    "@mui/lab" "^5.0.0-alpha.134"
+    "@mui/material" "^5.13.5"
+    "@mui/styles" "^5.13.2"
+    "@rollup/plugin-typescript" "^11.1.1"
+    eslint-config-prettier "^8.8.0"
+    eslint-plugin-jsx-a11y "^6.7.1"
+    mui-tree-selects "0.0.4"
+    prettier "^2.8.8"
+    react "^18.2.0"
+    react-dom "^18.2.0"
+    rollup "^3.25.1"
+    rollup-plugin-terser "^7.0.2"
+
+mui-tree-selects@0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/mui-tree-selects/-/mui-tree-selects-0.0.6.tgz#3d5c52605edb81a4f5fc4ecc0a54321128934e9a"
+  integrity sha512-hmXymyzWT6Yj+6nN/VJ8txDdENvWBjQOD5mbTxl7O4UG6PJiO30uPHGHBLWbP8YV9LlILED6pk1LCZ2biNXYgw==
+  dependencies:
+    "@emotion/react" "^11.11.1"
+    "@emotion/styled" "^11.11.0"
+    "@material-ui/core" "^4.12.4"
+    "@mui/icons-material" "^5.11.16"
+    "@mui/lab" "^5.0.0-alpha.134"
+    "@mui/material" "^5.13.5"
+    "@mui/styles" "^5.13.2"
+    "@rollup/plugin-typescript" "^11.1.1"
+    eslint-config-prettier "^8.8.0"
+    eslint-plugin-jsx-a11y "^6.7.1"
+    mui-tree-selects "0.0.5"
+    prettier "^2.8.8"
+    react "^18.2.0"
+    react-dom "^18.2.0"
+    rollup "^3.25.1"
+    rollup-plugin-minification "^0.2.0"
+
+mui-tree-selects@0.0.7:
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/mui-tree-selects/-/mui-tree-selects-0.0.7.tgz#e4cda17b3fa6e7f41d4a96d4e4b2ffd11d44c111"
+  integrity sha512-UTLXY0lb8BQmamymV2WPOl/XAYYrQ/EJmRKGfJZcc+HY85tBq5xKKqvg5+ihFWdxaPDCwiu5ejUAhhzR1Nbfyg==
+  dependencies:
+    "@emotion/react" "^11.11.1"
+    "@emotion/styled" "^11.11.0"
+    "@material-ui/core" "^4.12.4"
+    "@mui/icons-material" "^5.11.16"
+    "@mui/lab" "^5.0.0-alpha.134"
+    "@mui/material" "^5.13.5"
+    "@mui/styles" "^5.13.2"
+    "@rollup/plugin-typescript" "^11.1.1"
+    eslint-config-prettier "^8.8.0"
+    eslint-plugin-jsx-a11y "^6.7.1"
+    mui-tree-selects "0.0.6"
+    prettier "^2.8.8"
+    react "^18.2.0"
+    react-dom "^18.2.0"
+    rollup "^3.25.1"
+    rollup-plugin-minification "^0.2.0"
+
+mui-tree-selects@0.0.8:
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/mui-tree-selects/-/mui-tree-selects-0.0.8.tgz#86b591b63c4fa3afd4a76c1f7e76918ff7c87f52"
+  integrity sha512-hxtlAj6RoO/LJrBc3tVJgNg1r/ospszyeFCfXOtI5pk7sAmguGVT3Oo+iyD6crij3dh3meskrppzQKhMs6A3tA==
+  dependencies:
+    "@emotion/react" "^11.11.1"
+    "@emotion/styled" "^11.11.0"
+    "@material-ui/core" "^4.12.4"
+    "@mui/icons-material" "^5.11.16"
+    "@mui/lab" "^5.0.0-alpha.134"
+    "@mui/material" "^5.13.5"
+    "@mui/styles" "^5.13.2"
+    "@rollup/plugin-typescript" "^11.1.1"
+    eslint-config-prettier "^8.8.0"
+    eslint-plugin-jsx-a11y "^6.7.1"
+    mui-tree-selects "0.0.7"
+    prettier "^2.8.8"
+    react "^18.2.0"
+    react-dom "^18.2.0"
+    rollup "^3.25.1"
+    rollup-plugin-minification "^0.2.0"
+
+mui-tree-selects@0.0.9:
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/mui-tree-selects/-/mui-tree-selects-0.0.9.tgz#212b34da9ad284daed1bc33ada26972ba2563c32"
+  integrity sha512-GkhEtqFrR/1lZQwMV7w7M4aWKc295JY7SaVfRqzKon7p4YD2jck3jSOS9P9KSiBt7E8dVG+FaVSxZm5IejJ+lg==
+  dependencies:
+    "@emotion/react" "^11.11.1"
+    "@emotion/styled" "^11.11.0"
+    "@material-ui/core" "^4.12.4"
+    "@mui/icons-material" "^5.11.16"
+    "@mui/lab" "^5.0.0-alpha.134"
+    "@mui/material" "^5.13.5"
+    "@mui/styles" "^5.13.2"
+    "@rollup/plugin-typescript" "^11.1.1"
+    eslint-config-prettier "^8.8.0"
+    eslint-plugin-jsx-a11y "^6.7.1"
+    mui-tree-selects "0.0.8"
+    prettier "^2.8.8"
+    react "^18.2.0"
+    react-dom "^18.2.0"
+    rollup "^3.25.1"
+    rollup-plugin-minification "^0.2.0"
+    rollup-plugin-terser "^7.0.2"
+
 mui-tree-selects@^0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/mui-tree-selects/-/mui-tree-selects-0.0.1.tgz#9e97d25a72499cb7b0ea6d19d1fd49dda705ab4c"
@@ -3860,6 +3971,13 @@ rimraf@^3.0.2:
   dependencies:
     glob "^7.1.3"
 
+rollup-plugin-minification@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-minification/-/rollup-plugin-minification-0.2.0.tgz#4f206995b05bd3511b4dc2cf0713f24e712cc5ec"
+  integrity sha512-xgs1Ip93Ltz/8ftNkFbhmifLl7haxBkClZUP/Rkzq/hD/HjuoHNidP4Yx1Qzz6MwdeYiK+k8pHNeGGT5I0NROg==
+  dependencies:
+    terser "^5.15.1"
+
 rollup-plugin-terser@^7.0.2:
   version "7.0.2"
   resolved "https://registry.yarnpkg.com/rollup-plugin-terser/-/rollup-plugin-terser-7.0.2.tgz#e8fbba4869981b2dc35ae7e8a502d5c6c04d324d"
@@ -4067,7 +4185,7 @@ supports-preserve-symlinks-flag@^1.0.0:
   resolved "https://registry.yarnpkg.com/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz#6eda4bd344a3c94aea376d4cc31bc77311039e09"
   integrity sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==
 
-terser@^5.0.0:
+terser@^5.0.0, terser@^5.15.1:
   version "5.18.0"
   resolved "https://registry.yarnpkg.com/terser/-/terser-5.18.0.tgz#dc811fb8e3481a875d545bda247c8730ee4dc76b"
   integrity sha512-pdL757Ig5a0I+owA42l6tIuEycRuM7FPY4n62h44mRLRfnOxJkkOHd6i89dOpwZlpF6JXBwaAHF6yWzFrt+QyA==

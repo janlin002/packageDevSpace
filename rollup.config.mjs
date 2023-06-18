@@ -3,7 +3,7 @@ import typescript from '@rollup/plugin-typescript'
 
 export default [
   {
-    input: 'src/MuiTreeSelect.tsx',
+    input: 'src/index.tsx',
     output: {
       file: 'dist/index.min.js',
       format: 'cjs',
