@@ -49,14 +49,14 @@ export const useStyles = makeStyles<StyleProps>(() => ({
   }
 }));
 
-const MuiTreeSelect = ({
+const MuiTreeSelect:React.FC<MuiTreeSelectProps> = ({
   treeData,
   collapseIcon = ChevronRightIcon,
   expandIcon = ExpandMoreIcon,
   iconReverse = false,
   checkboxColor = '#121232',
   expanded = []
-}: MuiTreeSelectProps) => {
+}) => {
   const classes = useStyles()
 
     const renderTree = (node: TreeData) =>{

@@ -20,7 +20,10 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
-    "typeRoots": ["@types", "./node_modules/@types"]
+    "typeRoots": ["@types", "./node_modules/@types"],
+    "declaration": true, //生成相應的 '.d.ts' 文件
+    "declarationMap": true,
+    "outDir": "./dist",
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "@types/index.d.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
