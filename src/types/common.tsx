@@ -1,10 +1,19 @@
+import {
+    Dispatch,
+    SetStateAction,
+  } from "react";
+
 export type MuiTreeSelectProps = {
-    treeData: TreeData[],
+    treeData: TreeData[] | any,
     collapseIcon?: any ,
     expandIcon?: any,
     iconReverse?: boolean,
     checkboxColor?: string,
-    expanded?: string[]
+    expanded?: string[],
+    selectedNodes: string[];
+    setSelectedNodes: Dispatch<SetStateAction<string[]>>;
+    All: string,
+    defaultExpanded?: string[]
 }
 
 export type StyleProps = {

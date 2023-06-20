@@ -1,4 +1,5 @@
-import React, {MouseEvent}  from 'react';
+/* eslint-disable no-param-reassign */
+import React, {MouseEvent, useEffect}  from 'react';
 import TreeView from '@mui/lab/TreeView';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
@@ -17,28 +18,30 @@ export const useStyles = makeStyles<StyleProps>(() => ({
 
     // "& > .MuiTreeItem-root > .MuiTreeItem-content":
     //   {
-    //     padding: '0px',
+    //     borderBottom: "1px solid #E4E7EC",
     //   },
+
+
+    //   "& > .MuiTreeItem-root > .MuiTreeItem-content:last-child":
+    //   {
+    //     borderBottom: "none",
+    //   },
+
 
     "&": {
       border: "1px solid #E4E7EC",
       borderRadius: "10px",
-      // "& > .MuiCollapse-root": {
-      //   borderTop: "1px solid #E4E7EC",
-      //   marginLeft: "0px",
-      //   "& > .MuiCollapse-wrapper > .MuiCollapse-wrapperInner > .MuiTreeItem-root":
-      //     {
-      //       borderBottom: "1px solid #E4E7EC",
-      //       "&:last-child": {
-      //         borderBottom: "none",
-      //       },
-      //     },
-      // },
+      "& > .MuiTreeItem-root > .MuiTreeItem-content":{
+        borderBottom: "1px solid #E4E7EC",
+        // "&:last-child":{
+        //   borderBottom: "none",
+        // }
+      }
     },
     "@global": {
       '.MuiTreeItem-content': {
         padding: '0px'
-      }
+      },
     }
   },
   content: {
@@ -49,13 +52,32 @@ export const useStyles = makeStyles<StyleProps>(() => ({
   }
 }));
 
+const bfsSearch = (graph: TreeData[], targetId: string) => {
+  const queue = [...graph];
+
+  while (queue.length > 0) {
+    const currNode = queue.shift() as TreeData;
+    if (currNode.id === targetId) {
+      return currNode;
+    }
+    if (currNode.children) {
+      queue.push(...currNode.children);
+    }
+  }
+  return []; // Target node not found
+};
+
 const MuiTreeSelect:React.FC<MuiTreeSelectProps> = ({
   treeData,
   collapseIcon = ChevronRightIcon,
   expandIcon = ExpandMoreIcon,
   iconReverse = false,
   checkboxColor = '#121232',
-  expanded = []
+  expanded = [],
+  selectedNodes,
+  setSelectedNodes,
+  All,
+  defaultExpanded
 }) => {
   const classes = useStyles()
 
@@ -63,10 +85,63 @@ const MuiTreeSelect:React.FC<MuiTreeSelectProps> = ({
         const handleExpandClick = () =>{
             console.log('123123')
         }
-        
-        const handleNodeSelect = (event: MouseEvent<HTMLButtonElement>, id: string) =>{
-            console.log(event, id, 'iddd')
-            console.log(expanded, '123')
+
+        function getAllIds(node: any, idList: string[] = []) {
+          idList.push(node.id);
+          // idList = [...idList, node?.id]
+          if (node.children) {
+            node?.children?.forEach((child: any) => getAllIds(child, idList));
+          }
+          return idList;
+        }
+
+        const getAllChild = (id: string) => {
+          return getAllIds(bfsSearch(treeData, id));
+        };
+
+        const getAllFathers = (id: string, list: string[] = []): string[] => {
+          const node = bfsSearch(treeData, id) as TreeData;
+          if (node.parent) {
+            list.push(node.parent);
+      
+            return getAllFathers(node.parent, list);
+          }
+      
+          return list;
+        };
+
+        function isAllChildrenChecked(node: TreeData, list: string[]) {
+          const allChild = getAllChild(node.id);
+          const nodeIdIndex = allChild.indexOf(node.id);
+          allChild.splice(nodeIdIndex, 1);
+      
+          return allChild.every((nodeId) =>
+            selectedNodes.concat(list).includes(nodeId)
+          );
+        }
+
+        const handleNodeSelect = (event: MouseEvent<HTMLButtonElement>, nodeId: string) => {
+          event.stopPropagation();
+          const allChild = getAllChild(nodeId);
+          const fathers = getAllFathers(nodeId);
+
+          if (selectedNodes.includes(nodeId)) {
+            // Need to de-check
+            setSelectedNodes((prevSelectedNodes) =>
+              prevSelectedNodes.filter((id) => !allChild.concat(fathers).includes(id))
+            );
+          } else {
+            // Need to check
+            const ToBeChecked = allChild;
+            for (let i = 0; i < fathers.length; ++i) {
+              if (isAllChildrenChecked(bfsSearch(treeData, fathers[i]) as TreeData, ToBeChecked)) {
+                ToBeChecked.push(fathers[i]);
+              }
+            }
+            setSelectedNodes((prevSelectedNodes) =>
+              [...prevSelectedNodes].concat(ToBeChecked)
+            );
+          }
         }
 
         return (
@@ -80,7 +155,7 @@ const MuiTreeSelect:React.FC<MuiTreeSelectProps> = ({
               label={
                 <>
                   <Checkbox
-                    // checked={selectedNodes.indexOf(node.id) !== -1}
+                    checked={selectedNodes.indexOf(node.id) !== -1}
                     tabIndex={-1}
                     disableRipple
                     onClick={(event) => handleNodeSelect(event, node.id)}
@@ -90,22 +165,23 @@ const MuiTreeSelect:React.FC<MuiTreeSelectProps> = ({
                 </>
               }
             >
-      {Array.isArray(node.children)
-        ? node.children.map((node: TreeData) => renderTree(node))
-        : null}
-    </TreeItem>
+              {Array.isArray(node.children)
+                ? node.children.map((node: TreeData) => renderTree(node))
+                : null}
+            </TreeItem>
         )
     }
-  return (
-    <TreeView
-    multiSelect
-    defaultCollapseIcon={expandIcon}
-    defaultExpandIcon={collapseIcon}
-    selected={[]} // 可考慮 props
-    className={classes.root}
-  >
-    {treeData?.map((node) => renderTree(node))}
-  </TreeView>
+      return (
+        <TreeView
+          multiSelect
+          defaultCollapseIcon={expandIcon}
+          defaultExpandIcon={collapseIcon}
+          selected={[]} // 可考慮 props
+          className={classes.root}
+          defaultExpanded={ defaultExpanded ? defaultExpanded : [All]}
+        >
+          {treeData?.map((node: TreeData) => renderTree(node))}
+        </TreeView>
   )
 }
 
@@ -114,3 +190,11 @@ export default MuiTreeSelect
 // 按鈕向後
 // 按鈕自定義
 // https://codesandbox.io/s/strange-euclid-ywcjxt?file=/src/App.js
+
+// 不能勾選
+
+
+
+
+
+
